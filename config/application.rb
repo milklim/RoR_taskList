@@ -16,3 +16,7 @@ module Crud
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+#TODO: if this settings need for heroku
+#config.assets.initialize_on_precompile = false
+
