@@ -1,5 +1,18 @@
-<%= form_for :task do |f|-%>
-    <%= f.text_field :name, placeholder: 'name' %>
-    <%= f.text_field :description, placeholder: 'description' %>
-    <%= f.submit "save" %>
-<% end %>
+<div>
+  <% if user_signed_in? %>
+      <span>Здравствуйте, <%= current_user.email %></span>
+      <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Регистрация', new_user_registration_path %>
+  <% end %>
+</div>
+<hr>
+
+<div>
+  <%= form_for :task do |f|-%>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.text_field :name, placeholder: 'name' %>
+      <%= f.text_field :description, placeholder: 'description' %>
+      <%= f.submit "save" %>
+  <% end %>
+</div>

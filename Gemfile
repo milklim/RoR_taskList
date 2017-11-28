@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 #Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.3'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/', to:'tasks#index', as: 'root_url'
   get 'tasks/new', to: 'tasks#new', as: 'new_task'
   get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'

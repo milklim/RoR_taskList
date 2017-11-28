@@ -1,6 +1,19 @@
-<%= form_for(@task, url: update_task_path(@task), html: {method: "put"}) do |t|%>
-    <%= t.hidden_field :id %>
-    <%= t.text_field :name %> <br>
-    <%= t.text_field :description %> <br>
-    <%= t.submit "Save" %>
-<% end %>
+<div>
+  <% if user_signed_in? %>
+      <span>Здравствуйте, <%= current_user.email %></span>
+      <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Регистрация', new_user_registration_path %>
+  <% end %>
+</div>
+<hr>
+
+<div>
+  <%= form_for(@task, url: update_task_path(@task), html: {method: "put"}) do |t|%>
+      <%= t.hidden_field :id %>
+      <%= t.hidden_field :user_id, :value => current_user.id %>
+      <%= t.text_field :name %> <br>
+      <%= t.text_field :description %> <br>
+      <%= t.submit "Save" %>
+  <% end %>
+</div>
