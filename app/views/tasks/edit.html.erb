@@ -1,0 +1,13 @@
+<%= form_tag update_task_path :task, action=update_task_path(id:@task.id), method='put' do%>
+    <%= text_field(:task, :name) %>
+    <%= text_field(:task, :description) %>
+    <%= submit_tag "save" %>
+<% end %>
+
+
+<%= form_for(@task, url: update_task_path(@task), html: {method: "put"}) do |t|%>
+    <%= t.text_field :id %>
+    <%= t.text_field :name %>
+    <%= t.text_field :description %>
+    <%= t.submit "Save" %>
+<% end %>
